@@ -2,7 +2,7 @@
 
 ![pantallazo_1](https://github.com/RgmProgrammer/GoogleMaps-Spain/blob/master/GoogleMaps-Spain.png)
 
-### Features:
+## Features:
 - Google Maps API
 - Spain map including the canary islands in other frame
 - Custom controls to change type of map (satellite/roadmap)
@@ -12,12 +12,12 @@
 - Click event shows a custom infowindow with extra information
 
 
-### Dependences:
-## Google Maps Javascript API key 
+## Dependences:
+### Google Maps Javascript API key 
 
 You need to put your own Google Javascript API key in index.html, change *YOUR_API_KEY* for your key.
 
-```html
+```javascript
   <script async defer src='https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap'></script>
 ```
 
