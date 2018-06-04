@@ -7,5 +7,6 @@ Features:
 - Custom icons, text and area for each point
 - Points of interest groups with filter (hide/show)
 - External JSON format data imported by AJAX
+- Click event show the custom information in infowindow
 
-![Pantallazo](https://github.com/RgmProgrammer/GoogleMaps-Spain/blob/master/GoogleMaps-Spain.png)
+![pantallazo_1](https://github.com/RgmProgrammer/GoogleMaps-Spain/blob/master/GoogleMaps-Spain.png)
