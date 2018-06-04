@@ -1,0 +1,173 @@
+[
+	{ 
+		"name" : "ESTADIOS DE FUTBOL",
+		"data" : [
+			{ 
+				"name" : "Estadio Wanda Metropolitano",
+				"pos" : { "lat" : 40.436235, "lng" : -3.599538 },
+				"icon" : "atletico_madrid.png",
+				"text" : [
+					"Av. de Luis Aragones, 4, 28022 Madrid",
+					"Donde juega el Atlético de Madrid",
+					"Capacidad para 67.703 espectadores"
+				] 
+			},
+			{ 
+				"name" : "Estadio Santiago Bernabeu",	
+				"pos" : { "lat" : 40.452981, "lng" : -3.688420 },
+				"icon" : "real_madrid.png",
+				"text" : [
+					"Av. de Concha Espina, 1, 28036 Madrid",
+					"Donde juega el Real Madrid",
+					"Capacidad para 81.044 espectadores"
+				],
+				"area" : {
+					"value" : 120,
+					"color" : "#FF00FF",
+					"stroke_color" : "#000000"
+				}
+			},
+			{ 
+				"name" : "Estadio de Mestalla",
+				"pos" : { "lat" : 39.474579, "lng" : -0.358083 },
+				"icon" : "valencia.png",
+				"text" : [
+					"Av. de Suècia, s/n, 46010 Valencia",
+					"Donde juega el Valencia",
+					"Capacidad para 55.000 espectadores"
+				] 
+			},
+			{ 
+				"name" : "Estadio Ramón Sánchez-Pizjuán",
+				"pos" : { "lat" : 37.384014, "lng" : -5.970662 },
+				"icon" : "sevilla.png",
+				"text" : [
+					"Calle Sevilla Fútbol Club, s/n, 41005 Sevilla",
+					"Donde juega el Sevilla",
+					"Capacidad para 42.500 espectadores"
+				] 
+			},
+			{ 
+				"name" : "Camp Nou",
+				"pos" : { "lat" : 41.380866, "lng" : 2.122854 },
+				"icon" : "barcelona.png",
+				"text" : [
+					"Carrer d'Aristides Maillol, 12, 08028 Barcelona",
+					"Donde juega el Barcelona",
+					"Capacidad para 99.354 espectadores"
+				] 
+			}
+		]
+	},
+	{ 
+		"name" : "EDIFICIOS EMBLEMATICOS",
+		"data" : [
+			{ 
+				"name" : "Basílica de la Sagrada familia",	
+				"pos" : { "lat" : 41.403582, "lng" : 2.174367 }, 
+				"icon" : "ancient.png",
+				"text" : [
+					"Carrer de Mallorca, 401, 08013 Barcelona",
+					"http://www.sagradafamilia.org"
+				]
+			},
+			{ 
+				"name" : "Alhambra",	
+				"pos" : { "lat" : 37.176061, "lng" : -3.588120 },
+				"icon" : "ancient.png",
+				"text" : [
+					"Calle Real de la Alhambra, s/n, 18009 Granada",
+					"http://www.alhambra-patronato.es"
+				]
+			},
+			{ 
+				"name" : "Cuatro Torres Business Area",	
+				"pos" : { "lat" : 40.477443, "lng" : -3.687622 },
+				"icon" : "ancient.png",
+				"text" : [
+					"Paseo de la Castellana, s/n, 28029 Madrid",
+					"http://www.esmadrid.com"
+				]
+			},
+			{ 
+				"name" : "Oceanografic",	
+				"pos" : { "lat" : 39.453289, "lng" : -0.347793 },
+				"icon" : "ancient.png",
+				"text" : [
+					"Carrer d'Eduardo Primo Yúfera, 46013 València",
+					"http://www.oceanografic.org"
+				]
+			},
+			{ 
+				"name" : "Catedral de Santiago de Compostela",	
+				"pos" : { "lat" : 42.880581, "lng" : -8.544809 },
+				"icon" : "ancient.png",
+				"text" : [
+					"Praza do Obradoiro, s/n, 15704 Santiago de Compostela, A Coruña",
+					"http://www.catedraldesantiago.es"
+				]
+			}
+			
+		]
+	},
+	{ 
+		"name" : "PICOS MÁS ALTOS",
+		"data" : [
+			{ 
+				"name" : "Teide",
+				"pos" : { "lat" : 28.272179, "lng" : -16.642625 },
+				"icon" : "volcano1.png",
+				"text" : [
+					"3.718 metros",
+					"Volcán (Santa Cruz de Tenerife)"
+				]
+			},
+			{ 
+				"name" : "Mulhacén",
+				"pos" : { "lat" : 37.0535331, "lng" : -3.3197537 },
+				"icon" : "mountain.png",
+				"text" : [
+					"3.479 metros",
+					"Sierra Nevada (Granada)"
+				]
+			},
+			{ 
+				"name" : "Aneto",  
+				"pos" : { "lat" : 42.631058, "lng" : 0.656260 },
+				"icon" : "mountain.png",
+				"text" : [
+					"3.398 metros",
+					"Pirineos (Huesca)"
+				]
+			},
+			{ 
+				"name" : "Veleta",  
+				"pos" : { "lat" : 37.055377, "lng" : -3.366557 }, 
+				"icon" : "mountain.png",
+				"text" : [
+					"3.404 metros",
+					"Sierra Nevada (Granada)"
+				]
+			},
+			{ 
+				"name" : "Posets",  
+				"pos" : { "lat" : 42.664513, "lng" : 0.425474 },
+				"icon" : "mountain.png",
+				"text" : [
+					"3.371 metros",
+					"Pirineos (Huesca)"
+				]
+			}
+		]
+	},
+	{ 
+		"name" : "PARAISOS NATURALES",
+		"data" : [
+			{ 
+				"name" : "Isla de Ibiza",
+				"pos" : { "lat" : 39.015199, "lng" : 1.482119 },
+				"icon" : "beach.png"
+			}
+		]
+	}
+]

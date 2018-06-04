@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+    <title>Spain Google Map</title>
+    <link rel='stylesheet' type='text/css' href='./css/style.css'>
+  </head>
+  <body>
+	
+    <div id='map'></div>
+		<div id='map_isl'></div>	
+		
+    <script>		
+		
+			var map;
+			var map_isl;
+			
+			var markers = new Array();
+			var markers_isl = new Array();
+			
+			var areas = new Array();
+			
+			var infowindow;
+		
+      function initMap(){
+				
+				map = new google.maps.Map( document.getElementById( 'map' ), {
+          zoom: 6,
+          center: { lat: 39.213779, lng: -4.081430 },
+          mapTypeId: 'roadmap',
+					mapTypeControl: false,
+					zoomControl: true,
+          zoomControlOptions: {
+              position: google.maps.ControlPosition.TOP_LEFT
+          },
+					streetViewControl: true,
+          streetViewControlOptions: {
+              position: google.maps.ControlPosition.TOP_LEFT
+          }
+        });	
+				
+				map_isl = new google.maps.Map( document.getElementById( 'map_isl' ), {
+					zoom: 7,
+					center: { lat: 28.353333, lng: -15.669969 },  
+					mapTypeId: 'roadmap',
+					disableDefaultUI: true
+				});
+				
+				var btnCustomControl;
+				
+				btnCustomControl = document.createElement( 'div' );
+				btnCustomControl.className += 'btnCustomControl';
+				btnCustomControl.innerHTML = 'Satélite';
+				btnCustomControl.addEventListener( 'click', function(){
+					map.setMapTypeId( 'satellite' );
+					map_isl.setMapTypeId( 'satellite' );
+				}); 
+				map.controls[ google.maps.ControlPosition.TOP_CENTER ].push( btnCustomControl );
+				
+				btnCustomControl = document.createElement( 'div' );
+				btnCustomControl.className += 'btnCustomControl';
+				btnCustomControl.innerHTML = 'Mapa';
+				btnCustomControl.addEventListener( 'click', function(){
+					map.setMapTypeId( 'roadmap' );
+					map_isl.setMapTypeId( 'roadmap' );
+				});
+				map.controls[ google.maps.ControlPosition.TOP_CENTER ].push( btnCustomControl );
+				
+				get_data();
+				
+      } // initMap()
+			
+			
+			
+			function get_data(){
+			
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function(){
+						if( this.readyState == 4 && this.status == 200 ){
+							var data = JSON.parse( this.responseText );
+							add_data( data );
+						}
+					};
+					xhttp.open( 'GET', 'data.json', true );
+					xhttp.send();
+				
+			} // get_data()
+			
+			
+			
+			function add_data( data ){
+			
+				infowindow = new google.maps.InfoWindow();
+				for( var group in data ){
+				
+					markers[ data[ group ].name ] = new Array();
+					markers_isl[ data[ group ].name ] = new Array();
+					
+					areas[ data[ group ].name ] = new Array();
+				
+					for( item in data[ group ].data ){		
+						add_marker( data[ group ].data[ item ], markers[ data[ group ].name ], markers_isl[ data[ group ].name ], areas[ data[ group ].name ] );
+					}
+					
+					add_filter_group( data[ group ].name );
+					
+				}
+				
+			} // add_data()
+			
+
+			
+			function add_marker( obj, group, group_isl, group_area ){
+				
+				var icon = './img/' + obj.icon;
+				
+				var text = '';
+				for( var line in obj.text ){
+					text += obj.text[ line ] + '<br>';
+				}
+				
+				var marker = new google.maps.Marker({
+					map: map,
+					position: obj.pos,
+					title: obj.name,
+					icon: icon,
+					header: obj.name,
+					text: text
+				});
+				marker.addListener( 'click', function(){
+					var content = '<div id="content"><h2 id="firstHeading" class="firstHeading">' + this.title + '</h2><div id="bodyContent"><p>' + text + '</p><p><a href="#" onClick="zoom_back();">zoom back</a></p></div></div>';
+					infowindow.setContent( content );
+					infowindow.open( map, this );
+					map.setCenter( this.getPosition() );
+					map.setZoom( 15 );
+				});
+				group.push( marker ); 
+				
+				var marker_isl = new google.maps.Marker({
+					map: map_isl,
+					position: obj.pos,
+					title: obj.name,
+					icon: icon
+				});
+				marker_isl.addListener( 'click', function(){
+					google.maps.event.trigger( group[ group_isl.indexOf( this ) ], 'click' );
+				});
+				group_isl.push( marker_isl );
+				
+				var area;
+				if( obj.area === undefined ){ 
+					area = null;					
+				}else{
+					area = new google.maps.Circle({
+						strokeColor: obj.area.stroke_color,
+						strokeOpacity: 0.8,
+						strokeWeight: 2,
+						fillColor: obj.area.color,
+						fillOpacity: 0.35,
+						map: map,
+						center: obj.pos,
+						radius: obj.area.value
+					});
+				}
+				group_area.push( area );
+				
+			} // add_marker()
+			
+			
+			
+			function zoom_back(){
+			
+				infowindow.setMap( null );
+				map.setCenter( { lat: 39.213779, lng: -4.081430 } );
+				map.setZoom( 6 );
+				
+			} // zoom_back()
+			
+			
+			function add_filter_group( group ){
+
+				var textCustomControl;
+				var divCustomControl;
+				var sw_container;
+				var sw_btn;
+				var sw_check;
+			
+				sw_container = document.createElement( 'div' );
+				sw_container.className += 'content_switch';
+				
+				sw_btn = document.createElement( 'div' );
+				
+				sw_btn.className += 'btn_switch';
+				
+				sw_check = document.createElement( 'input' );
+				sw_check.setAttribute( 'type', 'checkbox' );
+				sw_check.setAttribute( 'checked', 'checked' );
+				sw_check.setAttribute( 'id', 'grupo' );
+				sw_check.style.display = 'none';
+				
+				sw_container.appendChild( sw_btn );
+				sw_container.appendChild( sw_check );
+				
+				sw_container.addEventListener( 'click', function(){
+					if( this.childNodes[ 1 ].checked ){
+						this.childNodes[ 1 ].removeAttribute( 'checked' );
+						this.style.background = 'rgb( 204, 204, 204 )';  	
+						toggle_btn( this.childNodes[ 0 ], false, 16, 0 );
+						toggle_data( group, true );
+					} else{
+						this.childNodes[ 1 ].setAttribute( 'checked', 'checked' );
+						this.style.background = 'rgb( 33, 150, 243 )';
+						toggle_btn( this.childNodes[ 0 ], true, 0, 16  );
+						toggle_data( group, false );
+					}	
+				});
+				
+				textCustomControl = document.createElement( 'div' );
+				textCustomControl.className += 'textCustomControl';
+				textCustomControl.innerHTML = ' ' + group;
+				
+				divCustomControl = document.createElement( 'div' );
+        divCustomControl.className += 'divCustomControl';
+				divCustomControl.appendChild( sw_container );
+				divCustomControl.appendChild( textCustomControl );
+				
+        map.controls[ google.maps.ControlPosition.LEFT_TOP ].push( divCustomControl );
+
+			} // add_filter()
+			
+			
+			
+			function toggle_btn( btn, sw, ini, fin ){
+			
+				var animation = setInterval( function(){		
+					if( ini == fin ){ clearInterval( animation );
+					}else{
+						if( sw ){ ini++; } 
+						else{ ini--; } 
+						btn.style.left = ini + 'px'; 
+					}
+				}, 5 );
+				
+			} // toogle_btn()
+			
+			
+			
+			function toggle_data( group, sw ){ 
+			
+				for( item in markers[ group ] ){
+					if( sw ){ 
+						markers[ group ][ item ].setMap( null );
+						markers_isl[ group ][ item ].setMap( null );
+					}else{
+						markers[ group ][ item ].setMap( map );
+						markers_isl[ group ][ item ].setMap( map_isl );
+					}
+				}
+				
+			} // toggle_data()
+			
+
+    </script>
+    <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBbZ8RxS-ou8kp7sdb460TZbH5nrxYCtn8&callback=initMap'></script>
+  </body>
+</html>
