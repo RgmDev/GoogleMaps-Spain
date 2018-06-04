@@ -1,4 +1,11 @@
 # GoogleMaps-Spain
-Google Maps of Spain
+Spain points of interest map
+Features:
+- Google Maps API
+- Spain map including the canary island in other frame
+- Custom controls to change type of map (satellite/roadmap)
+- Custom icons, text and area for each point
+- Points of interest groups with filter (hide/show)
+- External JSON format data imported by AJAX
 
-![Image of Yaktocat](https://github.com/RgmProgrammer/GoogleMaps-Spain/blob/master/GoogleMaps-Spain.png)
+![Pantallazo](https://github.com/RgmProgrammer/GoogleMaps-Spain/blob/master/GoogleMaps-Spain.png)
