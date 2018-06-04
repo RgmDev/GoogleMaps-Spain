@@ -10,3 +10,8 @@ Features:
 - Points of interest groups with filter (hide/show)
 - External JSON format data imported by AJAX
 - Click event shows a custom infowindow with extra information
+
+
+Dependences:
+- Google Maps Javascript API key 
+[Get your key](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=EN)
