@@ -1,4 +1,4 @@
-# GoogleMaps-Spain
+# GoogleMaps-Spain (Filters, custom icons, click event...)
 
 ![pantallazo_1](https://github.com/RgmProgrammer/GoogleMaps-Spain/blob/master/GoogleMaps-Spain.png)
 
