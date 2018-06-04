@@ -14,4 +14,4 @@ Features:
 
 Dependences:
 - Google Maps Javascript API key 
-[Get your key](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=EN)
+![Get your key](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=EN)
