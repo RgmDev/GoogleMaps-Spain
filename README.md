@@ -1,5 +1,4 @@
 # GoogleMaps-Spain
-Spain points of interest map
 
 ![pantallazo_1](https://github.com/RgmProgrammer/GoogleMaps-Spain/blob/master/GoogleMaps-Spain.png)
 
