@@ -1,12 +1,12 @@
-# GoogleMaps-Spain (Filters, custom icons, click event...)
+# Spain map (Filters, custom icons, click event...)
 
 ![pantallazo_1](https://github.com/RgmProgrammer/GoogleMaps-Spain/blob/master/GoogleMaps-Spain.png)
 
 Features:
 - Google Maps API
-- Spain map including the canary island in other frame
+- Spain map including the canary islands in other frame
 - Custom controls to change type of map (satellite/roadmap)
-- Custom icons, text and area for each point
+- Custom icons, text and color area for each point
 - Points of interest groups with filter (hide/show)
 - External JSON format data imported by AJAX
-- Click event show the custom information in infowindow
+- Click event shows a custom infowindow with extra information
