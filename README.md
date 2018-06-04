@@ -17,7 +17,7 @@
 
 You need to put your own Google Javascript API key in index.html, change *YOUR_API_KEY* for your key.
 
-```javascript
+```html
 <script async defer src='https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap'></script>
 ```
 
